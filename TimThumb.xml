@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dleplugin>
+	<name>TimThumb by TCSE</name>
+	<description>Кадрирование картинок на сайте.</description>
+	<icon></icon>
+	<version>0.2</version>
+	<dleversion>13</dleversion>
+	<versioncompare>greater</versioncompare>
+	<upgradeurl></upgradeurl>
+	<filedelete>0</filedelete>
+	<needplugin></needplugin>
+	<mnotice>1</mnotice>
+	<mysqlinstall><![CDATA[]]></mysqlinstall>
+	<mysqlupgrade><![CDATA[]]></mysqlupgrade>
+	<mysqlenable><![CDATA[]]></mysqlenable>
+	<mysqldisable><![CDATA[]]></mysqldisable>
+	<mysqldelete><![CDATA[]]></mysqldelete>
+	<phpinstall><![CDATA[]]></phpinstall>
+	<phpupgrade><![CDATA[]]></phpupgrade>
+	<phpenable><![CDATA[]]></phpenable>
+	<phpdisable><![CDATA[]]></phpdisable>
+	<phpdelete><![CDATA[]]></phpdelete>
+	<notice><![CDATA[Доработка плагина [url]http://www.binarymoon.co.uk/projects/timthumb/[/url]  для использования в шаблона DLE CMS. Кадрирование изображений в публикациях сайта.
+ Репозиторий исходного скрипта [url]https://github.com/GabrielGil/TimThumb[/url]
+
+[h3]Установка[/h3]
+
+Поставить для папки /engine/modules/mod_tcse/timthumb/cache/ права 775 - необходимо для создания миниатюр скадрированных изображений.
+
+В корневом файле /.htaccess
+после
+[code]
+RewriteEngine On
+[/code]
+
+вставить:
+
+[code]
+# TimThumb – PHP Image Resizer 
+RewriteRule ^resize$ /engine/modules/mod_tcse/timthumb/timthumb.php [L]
+[/code]
+
+
+В шаблонах кратких (shortstory.tpl) или полных (fullstory.tpl) новостей для кадрирования использовать код
+[code]
+<img src="/resize?src={image-1}&w=775q=80&a=c" alt="">
+[/code]
+
+где параметр w=775q=80&a=c
+w=775 - ширина картинки
+q=80 - качество сжатия
+a=c - центрирование изображения
+
+еще пример: 
+[code]
+<img src="/resize?src={image-1}&w=480&h=240&a=c" alt="">
+[/code]
+
+где 
+&w=480&h=240&a=c
+w=480 - ширина картинки
+h=240 - высота картинки
+a=c - центрирование изображения
+{image-1} - тег вывода первой картинки в теле публикации.
+ ]]></notice>
+</dleplugin>
