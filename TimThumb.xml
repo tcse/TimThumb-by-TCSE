@@ -2,7 +2,7 @@
 <dleplugin>
 	<name>TimThumb by TCSE</name>
 	<description>Кадрирование картинок на сайте.</description>
-	<icon></icon>
+	<icon>engine/skins/images/timthumb_tcse.png</icon>
 	<version>0.2</version>
 	<dleversion>13</dleversion>
 	<versioncompare>greater</versioncompare>
@@ -20,8 +20,10 @@
 	<phpenable><![CDATA[]]></phpenable>
 	<phpdisable><![CDATA[]]></phpdisable>
 	<phpdelete><![CDATA[]]></phpdelete>
-	<notice><![CDATA[Доработка плагина [url]http://www.binarymoon.co.uk/projects/timthumb/[/url]  для использования в шаблона DLE CMS. Кадрирование изображений в публикациях сайта.
- Репозиторий исходного скрипта [url]https://github.com/GabrielGil/TimThumb[/url]
+	<notice><![CDATA[Доработка плагина [url]http://www.binarymoon.co.uk/projects/timthumb/[/url]  для использования в шаблона DLE CMS. Кадрирование изображений в публикациях сайта. 
+Репозиторий исходного скрипта [url]https://github.com/GabrielGil/TimThumb[/url]
+
+Репозиторий длагина для DLE [url]https://github.com/tcse/TimThumb-by-TCSE[/url]
 
 [h3]Установка[/h3]
 
