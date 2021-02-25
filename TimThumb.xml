@@ -3,7 +3,7 @@
 	<name>TimThumb by TCSE</name>
 	<description>Кадрирование картинок на сайте.</description>
 	<icon>engine/skins/images/timthumb_tcse.png</icon>
-	<version>0.2</version>
+	<version>1.0</version>
 	<dleversion>13</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl></upgradeurl>
@@ -23,9 +23,11 @@
 	<notice><![CDATA[Доработка плагина [url]http://www.binarymoon.co.uk/projects/timthumb/[/url]  для использования в шаблона DLE CMS. Кадрирование изображений в публикациях сайта. 
 Репозиторий исходного скрипта [url]https://github.com/GabrielGil/TimThumb[/url]
 
-Репозиторий длагина для DLE [url]https://github.com/tcse/TimThumb-by-TCSE[/url]
+Репозиторий плагина для DLE [url]https://github.com/tcse/TimThumb-by-TCSE[/url]
 
 [h3]Установка[/h3]
+
+В админке сайта [b]Настройки скрипта[/b] - [b]Настройки системы[/b] вкладка [b]Изображения[/b] найти опцию [b]TimThumb: Разрешить получение изображений с внешних веб-сайтов[/b] и активировать. 
 
 Поставить для папки /engine/modules/mod_tcse/timthumb/cache/ права 775 - необходимо для создания миниатюр скадрированных изображений.
 
@@ -63,6 +65,54 @@ a=c - центрирование изображения
 w=480 - ширина картинки
 h=240 - высота картинки
 a=c - центрирование изображения
-{image-1} - тег вывода первой картинки в теле публикации.
- ]]></notice>
+{image-1} - тег вывода первой картинки в теле публикации.]]></notice>
+	<file name="engine/inc/options.php">
+		<operation action="before">
+			<searchcode><![CDATA[showRow( $lang['opt_sys_minside'], $lang['opt_sys_minsided'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[min_up_side]' value=\"{$config['min_up_side']}\" >", "white-line" );]]></searchcode>
+			<replacecode><![CDATA[//TimThumb by TCSE
+
+showRow( $lang['timthumb_aaes_t'], $lang['timthumb_aaes_d'], makeCheckBox( "save_con[timthumb_ALLOW_ALL_EXTERNAL_SITES]", "{$config['timthumb_ALLOW_ALL_EXTERNAL_SITES']}" ) );
+
+showRow( $lang['timthumb_fctbc_t'], $lang['timthumb_fctbc_d'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS]' value=\"{$config['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS']}\" >", "white-line" );
+
+showRow( $lang['timthumb_fcmfa_t'], $lang['timthumb_fcmfa_d'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[timthumb_FILE_CACHE_MAX_FILE_AGE]' value=\"{$config['timthumb_FILE_CACHE_MAX_FILE_AGE']}\" >", "white-line" );
+
+//showRow( $lang['timthumb_mfs_t'], $lang['timthumb_mfs_d'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[timthumb_MAX_FILE_SIZE]' value=\"{$config['timthumb_MAX_FILE_SIZE']}\" >", "white-line" );
+
+// .TimThumb by TCSE]]></replacecode>
+		</operation>
+		<operation action="after">
+			<searchcode><![CDATA[$save_con['tinypng_resize'] = intval($save_con['tinypng_resize']);]]></searchcode>
+			<replacecode><![CDATA[// TimThumb by TCSE
+
+$save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES'] = intval($save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES']);
+
+$save_con['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS'] = intval($save_con['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS']);
+
+$save_con['timthumb_FILE_CACHE_MAX_FILE_AGE'] = intval($save_con['timthumb_FILE_CACHE_MAX_FILE_AGE']);
+
+//$save_con['timthumb_MAX_FILE_SIZE'] = intval($save_con['timthumb_MAX_FILE_SIZE']);
+
+// .TimThumb by TCSE]]></replacecode>
+		</operation>
+	</file>
+	<file name="language/Russian/adminpanel.lng">
+		<operation action="after">
+			<searchcode><![CDATA[wysiwyg_language'		=>  "ru",]]></searchcode>
+			<replacecode><![CDATA[// TimThumb by TCSE
+'timthumb_aaes_t'		=>	"TimThumb: Разрешить получение изображений с внешних веб-сайтов",
+'timthumb_aaes_d'		=>	"Будет проверяться ALLOWED_SITES, если ALLOW_ALL_EXTERNAL_SITES <b>false</b><br><br>Если ALLOW_EXTERNAL - <b>true</b>, а ALLOW_ALL_EXTERNAL_SITES - <b>false</b>, то внешние изображения будут извлекаться только из этих доменов и их поддоменов.<br><br> <i>flickr.com<br> staticflickr.com<br> picasa.com<br> img.youtube.com<br> upload.wikimedia.org<br> photobucket.com<br> imgur.com<br> imageshack.us<br> tinypic.com</i><br>",
+
+'timthumb_fctbc_t'		=>	"TimThumb:  Как часто очищается кеш",
+'timthumb_fctbc_d'		=>	"Параметр жизни кеша в 1 сутки.<br>
+86400/60/60/24=1",
+
+'timthumb_fcmfa_t'		=>	"TimThumb:  Сколько лет должно быть файлу для удаления из кеша ",
+'timthumb_fcmfa_d'		=>	"Параметр жизни кеша в 1 сутки.<br>
+86400/60/60/24=1",
+
+'timthumb_mfs_t'		=>	"TimThumb:  Максимальный вес файла (в байтах)",
+'timthumb_mfs_d'		=>	"10 мегабайт - это 10485760.<br> Это максимальный внутренний или внешний размер файла, который мы будем обрабатывать.",]]></replacecode>
+		</operation>
+	</file>
 </dleplugin>
