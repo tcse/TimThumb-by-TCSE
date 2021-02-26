@@ -1,26 +1,36 @@
 <?php
-/** переменные для engine/data/config.php 
-*	'{$config["timthumb_ALLOW_ALL_EXTERNAL_SITES"]}'
-* 	'{$config["timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS"]}'
-* 	'{$config["timthumb_FILE_CACHE_MAX_FILE_AGE"]}'
-* 	'{$config["timthumb_MAX_FILE_SIZE"]}'
+/*
+=====================================================
+ TimThumb for DLE - by Web studio TCSE
+-----------------------------------------------------
+ http://tcse-cms.com/
+-----------------------------------------------------
+ Copyright (c) 2020-2021 SoftNews Media Group
+=====================================================
+ Данный код защищен авторскими правами
+=====================================================
+ Файл: timthumb-config.php
+-----------------------------------------------------
+ Назначение: Настройка опций кадрирования в TimThumb.php
+=====================================================
 */
 
+// Разрешить получение изображений с внешних веб-сайтов 
+// Если TRUE - будет обрабатывать картинки с любых сайтов, копирую себе. 
+// Если FALSE - то внешние изображения будут извлекаться только из этих доменов и их поддоменов: flickr.com, staticflickr.com, picasa.com, img.youtube.com, upload.wikimedia.org, photobucket.com, imgur.com, imageshack.us, tinypic.com
+define('ALLOW_ALL_EXTERNAL_SITES', false);
 
-//define('ALLOW_ALL_EXTERNAL_SITES', true);
-//define ('FILE_CACHE_TIME_BETWEEN_CLEANS', 86400);
-//define ('FILE_CACHE_MAX_FILE_AGE', 86400); 
+// Как часто очищается кеш
+// Параметр жизни кеша в 1 сутки.
+// 86400/60/60/24=1
+define ('FILE_CACHE_TIME_BETWEEN_CLEANS', 86400);
+
+
+// Сколько лет должно быть файлу для удаления из кеша
+// Параметр жизни кеша в 1 сутки.
+// 86400/60/60/24=1
+define ('FILE_CACHE_MAX_FILE_AGE', 86400); 
+
+
 //define ('MAX_FILE_SIZE', 10485760);      
-     
-
-define('ALLOW_ALL_EXTERNAL_SITES', '{$config["timthumb_ALLOW_ALL_EXTERNAL_SITES"]}');
-
-define ('FILE_CACHE_TIME_BETWEEN_CLEANS', '{$config["timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS"]}');
-
-define ('FILE_CACHE_MAX_FILE_AGE', '{$config["timthumb_FILE_CACHE_MAX_FILE_AGE"]}'); 
-
-//define ('MAX_FILE_SIZE', '{$config["timthumb_MAX_FILE_SIZE"]}');      
-     
-
-
 ?>
