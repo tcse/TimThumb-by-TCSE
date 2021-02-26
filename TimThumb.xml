@@ -71,7 +71,7 @@ a=c - центрирование изображения
 			<searchcode><![CDATA[showRow( $lang['opt_sys_minside'], $lang['opt_sys_minsided'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[min_up_side]' value=\"{$config['min_up_side']}\" >", "white-line" );]]></searchcode>
 			<replacecode><![CDATA[//TimThumb by TCSE
 
-showRow( $lang['timthumb_aaes_t'], $lang['timthumb_aaes_d'], makeCheckBox( "save_con[timthumb_ALLOW_ALL_EXTERNAL_SITES]", "{$config['timthumb_ALLOW_ALL_EXTERNAL_SITES']}" ) );
+showRow( $lang['timthumb_aaes_t'], $lang['timthumb_aaes_d'], makeDropDown( array ("false" => $lang['timthumb_aaes_t_1'], "true" => $lang['timthumb_aaes_t_2'] ), "save_con[timthumb_ALLOW_ALL_EXTERNAL_SITES]", "{$config['timthumb_ALLOW_ALL_EXTERNAL_SITES']}" ) );
 
 showRow( $lang['timthumb_fctbc_t'], $lang['timthumb_fctbc_d'], "<input  type=\"text\" class=\"form-control\" style=\"max-width:150px; text-align: center;\"  name='save_con[timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS]' value=\"{$config['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS']}\" >", "white-line" );
 
@@ -85,7 +85,7 @@ showRow( $lang['timthumb_fcmfa_t'], $lang['timthumb_fcmfa_d'], "<input  type=\"t
 			<searchcode><![CDATA[$save_con['tinypng_resize'] = intval($save_con['tinypng_resize']);]]></searchcode>
 			<replacecode><![CDATA[// TimThumb by TCSE
 
-$save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES'] = intval($save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES']);
+//$save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES'] = intval($save_con['timthumb_ALLOW_ALL_EXTERNAL_SITES']);
 
 $save_con['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS'] = intval($save_con['timthumb_FILE_CACHE_TIME_BETWEEN_CLEANS']);
 
@@ -101,7 +101,9 @@ $save_con['timthumb_FILE_CACHE_MAX_FILE_AGE'] = intval($save_con['timthumb_FILE_
 			<searchcode><![CDATA[wysiwyg_language'		=>  "ru",]]></searchcode>
 			<replacecode><![CDATA[// TimThumb by TCSE
 'timthumb_aaes_t'		=>	"TimThumb: Разрешить получение изображений с внешних веб-сайтов",
-'timthumb_aaes_d'		=>	"Будет проверяться ALLOWED_SITES, если ALLOW_ALL_EXTERNAL_SITES <b>false</b><br><br>Если ALLOW_EXTERNAL - <b>true</b>, а ALLOW_ALL_EXTERNAL_SITES - <b>false</b>, то внешние изображения будут извлекаться только из этих доменов и их поддоменов.<br><br> <i>flickr.com<br> staticflickr.com<br> picasa.com<br> img.youtube.com<br> upload.wikimedia.org<br> photobucket.com<br> imgur.com<br> imageshack.us<br> tinypic.com</i><br>",
+'timthumb_aaes_d'		=>	"Если <b>Да</b> - будет обрабатывать картинки с любых сайтов, копирую себе.<br><br>Если <b>Нет</b>, то внешние изображения будут извлекаться только из этих доменов и их поддоменов.<br><br> <i>flickr.com<br> staticflickr.com<br> picasa.com<br> img.youtube.com<br> upload.wikimedia.org<br> photobucket.com<br> imgur.com<br> imageshack.us<br> tinypic.com</i><br>",
+'timthumb_aaes_t_1'		=>	"Нет",
+'timthumb_aaes_t_2'		=>	"Да",
 
 'timthumb_fctbc_t'		=>	"TimThumb:  Как часто очищается кеш",
 'timthumb_fctbc_d'		=>	"Параметр жизни кеша в 1 сутки.<br>
