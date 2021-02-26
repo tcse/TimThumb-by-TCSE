@@ -31,6 +31,12 @@ define ('FILE_CACHE_TIME_BETWEEN_CLEANS', 86400);
 // 86400/60/60/24=1
 define ('FILE_CACHE_MAX_FILE_AGE', 86400); 
 
+// Изображение для отображения при возникновении ошибки 404 вместо отображения сообщения об ошибке
+define ('NOT_FOUND_IMAGE', '/engine/skins/images/timthumb_tcse.png');
+
+// Изображение для отображения в случае возникновения ошибки вместо отображения сообщения об ошибке
+define ('ERROR_IMAGE', '/engine/skins/images/timthumb_tcse.png'); 
+
 
 //define ('MAX_FILE_SIZE', 10485760);      
 ?>
