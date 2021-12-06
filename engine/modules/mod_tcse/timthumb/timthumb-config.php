@@ -37,6 +37,12 @@ define ('NOT_FOUND_IMAGE', '/engine/skins/images/timthumb_tcse.png');
 // Изображение для отображения в случае возникновения ошибки вместо отображения сообщения об ошибке
 define ('ERROR_IMAGE', '/engine/skins/images/timthumb_tcse.png'); 
 
+// максимальное кол-во файлов в кэше
+define ('CACHE_SIZE', 250); 
+
+// максимальное кол-во файлов удаляемых за раз из кэша   
+define ('CACHE_CLEAR', 5);    
+
 
 //define ('MAX_FILE_SIZE', 10485760);      
 ?>
