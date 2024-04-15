@@ -3,8 +3,8 @@
 	<name>TimThumb by TCSE</name>
 	<description>Кадрирование картинок на сайте.</description>
 	<icon>engine/skins/images/timthumb_tcse.png</icon>
-	<version>0.3</version>
-	<dleversion>13</dleversion>
+	<version>0.4</version>
+	<dleversion>16</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl></upgradeurl>
 	<filedelete>0</filedelete>
@@ -27,9 +27,9 @@
 Страница поддержки DLE плагина [url]https://tcse-cms.com/works/1604-timthumb-by-tcse.html[/url]
 
 [h3]Установка[/h3]
-Через ftp при необходимости внести правки в файле /engine/modules/mod_tcse/timthumb/timthumb-config.php 
+Через ftp при необходимости внести правки в файле /plugins/tcse/timthumb-config.php 
 
-Поставить для папки /engine/modules/mod_tcse/timthumb/cache/ права 775 - необходимо для создания миниатюр скадрированных изображений.
+Поставить для папки /plugins/tcse/timthumb/cache/ права 775 - необходимо для создания миниатюр скадрированных изображений.
 
 В корневом файле /.htaccess
 после
@@ -41,7 +41,7 @@ RewriteEngine On
 
 [code]
 # TimThumb – PHP Image Resizer 
-RewriteRule ^resize$ /engine/modules/mod_tcse/timthumb/timthumb.php [L]
+RewriteRule ^resize$ /plugins/tcse/timthumb/timthumb.php [L]
 [/code]
 
 
